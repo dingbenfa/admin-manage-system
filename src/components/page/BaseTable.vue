@@ -31,7 +31,14 @@
                 </el-table-column>
             </el-table>
             <div class="pagination">
-                <el-pagination @current-change="handleCurrentChange" layout="prev, pager, next" :total="1000">
+                <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage"
+                    :page-sizes="[100, 200, 300, 400]"
+                    :page-size="100"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="1000">
                 </el-pagination>
             </div>
         </div>
@@ -87,7 +94,8 @@
                     date: '',
                     address: ''
                 },
-                idx: -1
+                idx: -1,
+                currentPage: 1
             }
         },
         created() {
@@ -119,6 +127,9 @@
             handleCurrentChange(val) {
                 this.cur_page = val;
                 this.getData();
+            },
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
             },
             // 获取 easy-mock 的模拟数据
             getData() {

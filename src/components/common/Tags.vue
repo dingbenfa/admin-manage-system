@@ -7,27 +7,12 @@
         <div class="dbfadmin-item-box dbfadmin-refresh" @click="refreshPage">
             <i class="el-icon-refresh"></i>
         </div>
-        <!-- <div class="dbfadmin-item-box dbfadmin-tags-prev" @click="tagsHeaderChange(0)">
-            <i class="el-icon-d-arrow-left"></i>
-        </div> -->
         <div class="page-tags">
             <el-tabs v-model="editableTabsValue" type="border-card" @tab-click="onRoutes" @tab-remove="removeTab">
                 <el-tab-pane v-for="(item, index) in editableTabs" :key="index" :label="item.title" :name="item.name" :closable="item.closable">
                 </el-tab-pane>
             </el-tabs>
-
-            <!-- <ul ref="tasHeader">
-                <li class="tags-li" v-for="(item,index) in editableTabs" :class="{'active': isActive(item.path),'tags-fiexd': !item.closable}" :key="index">
-                    <router-link :to="item.path" class="tags-li-title">
-                        {{item.title}}
-                    </router-link>
-                    <span class="tags-li-icon" @click="closeTags(index)" v-if="item.closable"><i class="el-icon-close"></i></span>
-                </li>
-            </ul> -->
         </div>
-        <!-- <div class="dbfadmin-item-box dbfadmin-tags-next" @click="tagsHeaderChange(1)">
-            <i class="el-icon-d-arrow-right"></i>
-        </div> -->
         <div class="dbfadmin-item-box dbfadmin-tags-select">
             <el-dropdown @command="handleTags">
                 <span class="el-dropdown-link">
